@@ -17,8 +17,8 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
     if name:
         client = df.DurableOrchestrationClient(starter)
-        instance_id = await client.start_new('orchestrator', None, dict(do_something='anything'))
-        return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully {instance_id}.")
+        instance_id = await client.start_new('orchestrator', None, {"activity": name, "do_something":'anything'})
+        return func.HttpResponse(f"Trying to start activity: {name}. This HTTP triggered function executed successfully {instance_id}.")
     else:
         return func.HttpResponse(
              "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",

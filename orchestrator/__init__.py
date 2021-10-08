@@ -8,13 +8,15 @@
 
 import logging
 
-import azure.functions as func
 import azure.durable_functions as df
 
 def orchestrator_function(context: df.DurableOrchestrationContext):
     logging.info("entering orchestrator")
-    result1 = yield context.call_activity('do_activity', context.get_input())
-    logging.info("exiting orchestrator")
-    return [result1]
+    dict_params = context.get_input()
+    result = 'none'
+    if (dict_params['activity']):
+        result = yield context.call_activity(dict_params['activity'], context.get_input())
+    logging.info('exiting orchestrator with result {result}')
+    return [result]
 
 main = df.Orchestrator.create(orchestrator_function)
