@@ -12,13 +12,13 @@ import random
 from lib import intensive_processing
 
 async def main(name: dict) -> str: 
-    logging.info('#######  entering do_activity_async {str(name)}')
-    logging.info('#######  entering do_activity_async')
-    logging.info('#######  entering do_activity_async')
-    logging.info('#######  entering do_activity_async')
-    intensive_processing(10)
-    logging.info('exiting do_activity_async ########')
-    logging.info('exiting do_activity_async ########')
-    logging.info('exiting do_activity_async ########')
-    logging.info('exiting do_activity_async ########')
+    logging.info(f'#######  entering {name["activity"]}')
+    logging.info(f'#######  entering {name["activity"]}')
+    logging.info(f'#######  entering {name["activity"]}')
+    logging.info(f'#######  entering {name["activity"]}')
+    resp = intensive_processing('input')
+    logging.info(f'#######  leaving {resp}')
+    logging.info(f'#######  leaving {resp}')
+    logging.info(f'#######  leaving {resp}')
+    logging.info(f'#######  leaving {resp}')
     return f'Hello {str(name)}!'

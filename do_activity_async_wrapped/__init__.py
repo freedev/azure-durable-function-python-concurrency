@@ -11,14 +11,14 @@ import logging
 from lib import async_executor, intensive_processing
 
 async def main(name: dict) -> str: 
-    logging.info('#######  entering do_activity_async_wrapped {str(name)}')
-    logging.info('#######  entering do_activity_async_wrapped')
-    logging.info('#######  entering do_activity_async_wrapped')
-    logging.info('#######  entering do_activity_async_wrapped')
-    l = lambda: intensive_processing(10)
-    await async_executor(l)
-    logging.info('exiting do_activity_async_wrapped ########')
-    logging.info('exiting do_activity_async_wrapped ########')
-    logging.info('exiting do_activity_async_wrapped ########')
-    logging.info('exiting do_activity_async_wrapped ########')
+    logging.info(f'#######  entering {name["activity"]}')
+    logging.info(f'#######  entering {name["activity"]}')
+    logging.info(f'#######  entering {name["activity"]}')
+    logging.info(f'#######  entering {name["activity"]}')
+    l = lambda: intensive_processing("input")
+    resp = await async_executor(l)
+    logging.info(f'#######  leaving {resp}')
+    logging.info(f'#######  leaving {resp}')
+    logging.info(f'#######  leaving {resp}')
+    logging.info(f'#######  leaving {resp}')
     return f'Hello {str(name)}!'

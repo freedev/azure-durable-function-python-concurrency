@@ -13,13 +13,13 @@ import random
 from lib import intensive_processing
 
 def main(name: dict) -> str: 
-    logging.info("#######  entering do_activity_sync")
-    logging.info("#######  entering do_activity_sync")
-    logging.info("#######  entering do_activity_sync")
-    logging.info("#######  entering do_activity_sync")
-    intensive_processing(10)
-    logging.info("exiting do_activity_sync ########")
-    logging.info("exiting do_activity_sync ########")
-    logging.info("exiting do_activity_sync ########")
-    logging.info("exiting do_activity_sync ########")
+    logging.info(f'#######  entering {name["activity"]}')
+    logging.info(f'#######  entering {name["activity"]}')
+    logging.info(f'#######  entering {name["activity"]}')
+    logging.info(f'#######  entering {name["activity"]}')
+    resp = intensive_processing(name["activity"])
+    logging.info(f'#######  leaving {resp}')
+    logging.info(f'#######  leaving {resp}')
+    logging.info(f'#######  leaving {resp}')
+    logging.info(f'#######  leaving {resp}')
     return f"Hello {str(name)}!"

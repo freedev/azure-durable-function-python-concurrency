@@ -21,9 +21,22 @@ def get_counter():
     with threadLock:
         return global_counter
 
-def intensive_processing(value: float):
-  time.sleep(value)
-  return value
+def intensive_processing(value: str):
+  cpu_bound()
+  # time.sleep(value)
+  return value + ' processed'
+
+def blocking_io():
+    # File operations (such as logging) can block the
+    # event loop: run them in a thread pool.
+    with open('/dev/urandom', 'rb') as f:
+        return f.read(100)
+
+def cpu_bound():
+    # CPU-bound operations will block the event loop:
+    # in general it is preferable to run them in a
+    # process pool.
+    return sum(i * i for i in range(11 ** 6))
 
 async def async_executor(sync_func, pool=None):
     eventloop = asyncio.get_event_loop()
