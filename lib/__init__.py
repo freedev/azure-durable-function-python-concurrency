@@ -38,8 +38,8 @@ def cpu_bound():
     # process pool.
     return sum(i * i for i in range(11 ** 6))
 
-async def async_executor(sync_func, pool=None):
-    eventloop = asyncio.get_event_loop()
+async def async_executor(sync_func, pool=None, eventloop = asyncio.get_event_loop()):
+    
 
     # Create 10 tasks for requests.get synchronous call
     tasks = [
