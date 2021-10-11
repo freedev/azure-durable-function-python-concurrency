@@ -43,9 +43,7 @@ async def async_executor(sync_func, pool=None):
 
     # Create 10 tasks for requests.get synchronous call
     tasks = [
-        asyncio.create_task(
-            invoke_get_request(eventloop, sync_func, pool)
-        ) for _ in range(10)
+      invoke_get_request(eventloop, sync_func, pool)
     ]
 
     done_tasks, _ = await asyncio.wait(tasks)
