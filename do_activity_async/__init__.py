@@ -16,7 +16,7 @@ async def main(name: dict) -> str:
     logging.info(f'#######  entering {name["activity"]}')
     logging.info(f'#######  entering {name["activity"]}')
     logging.info(f'#######  entering {name["activity"]}')
-    resp = intensive_processing('input')
+    resp = intensive_processing(name["activity"])
     logging.info(f'#######  leaving {resp}')
     logging.info(f'#######  leaving {resp}')
     logging.info(f'#######  leaving {resp}')
